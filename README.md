@@ -55,7 +55,7 @@ Para un perfil como el mío, enfocado en Backend e Infraestructura, estas estad�
 
 ![Estadísticas de Jose](https://github-readme-stats.vercel.app/api?username=JOSE&show_icons=true&theme=radical&rank_icon=github&border_radius=10)
 
-![Lenguajes más usados](https://github-readme-stats.vercel.app/api/top-langs/?username=TU_USUARIO&layout=compact&theme=radical&hide=html,css&border_radius=10)
+![Lenguajes más usados](https://github-readme-stats.vercel.app/api/top-langs/?username=Jose&layout=compact&theme=radical&hide=html,css&border_radius=10)
 ---
 
 ### 📫 Conecta conmigo
