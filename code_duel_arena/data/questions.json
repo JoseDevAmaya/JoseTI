@@ -1,0 +1,142 @@
+[
+  {
+    "id": "q1",
+    "type": "output",
+    "category": "python-basics",
+    "difficulty": 1,
+    "prompt": "What is the output?\n\nx = [1,2,3]\nprint(x[-1])",
+    "options": ["1", "2", "3", "Error"],
+    "answer": "C",
+    "explanation": "Negative index -1 points to the last element."
+  },
+  {
+    "id": "q2",
+    "type": "debug",
+    "category": "loops",
+    "difficulty": 1,
+    "prompt": "Which fix solves this bug?\n\nfor i in range(3)\n    print(i)",
+    "options": [
+      "Use range[3]",
+      "Add a colon after range(3)",
+      "Indent print left",
+      "Use print[i]"
+    ],
+    "answer": "B",
+    "explanation": "Python for loops require ':' at the end of the for statement."
+  },
+  {
+    "id": "q3",
+    "type": "complete",
+    "category": "strings",
+    "difficulty": 1,
+    "prompt": "Complete code to uppercase text:\n\nname = 'neo'\nprint(name.___())",
+    "options": ["upper", "capitalize", "title", "lower"],
+    "answer": "A",
+    "explanation": "upper() returns all characters in uppercase."
+  },
+  {
+    "id": "q4",
+    "type": "output",
+    "category": "functions",
+    "difficulty": 2,
+    "prompt": "What prints?\n\ndef add(a,b=2):\n    return a+b\nprint(add(3))",
+    "options": ["3", "4", "5", "Error"],
+    "answer": "C",
+    "explanation": "Default b=2, so add(3) returns 5."
+  },
+  {
+    "id": "q5",
+    "type": "debug",
+    "category": "data-structures",
+    "difficulty": 2,
+    "prompt": "Best fix for this error?\n\nd = {'a':1}\nprint(d['b'])",
+    "options": [
+      "Use d.get('b', 0)",
+      "Change dict to list",
+      "Use d('b')",
+      "Add semicolon"
+    ],
+    "answer": "A",
+    "explanation": "get avoids KeyError and can return a default value."
+  },
+  {
+    "id": "q6",
+    "type": "complete",
+    "category": "comprehensions",
+    "difficulty": 2,
+    "prompt": "Fill the blank to create list of squares:\n\nnums = [1,2,3]\nsq = [n**2 for n in ___]",
+    "options": ["range(nums)", "nums", "n", "sq"],
+    "answer": "B",
+    "explanation": "You iterate over nums directly in list comprehension."
+  },
+  {
+    "id": "q7",
+    "type": "output",
+    "category": "slicing",
+    "difficulty": 2,
+    "prompt": "Output?\n\ns = 'CYBER'\nprint(s[1:4])",
+    "options": ["CYB", "YBE", "YBER", "CBE"],
+    "answer": "B",
+    "explanation": "Slice [1:4] includes indexes 1,2,3 => 'YBE'."
+  },
+  {
+    "id": "q8",
+    "type": "debug",
+    "category": "oop",
+    "difficulty": 3,
+    "prompt": "What must be fixed?\n\nclass A:\n    def __init__(name):\n        self.name = name",
+    "options": [
+      "Constructor must include self first",
+      "Class should be function",
+      "Use __name__ not name",
+      "Remove __init__"
+    ],
+    "answer": "A",
+    "explanation": "Method signatures in classes need self as first parameter."
+  },
+  {
+    "id": "q9",
+    "type": "complete",
+    "category": "exceptions",
+    "difficulty": 3,
+    "prompt": "Complete robust parsing:\n\ntry:\n    n = int('x')\nexcept ___:\n    n = 0",
+    "options": ["Exception", "IndexError", "ImportError", "AttributeError"],
+    "answer": "A",
+    "explanation": "int('x') raises ValueError, subclass of Exception."
+  },
+  {
+    "id": "q10",
+    "type": "output",
+    "category": "logic",
+    "difficulty": 3,
+    "prompt": "What is printed?\n\nprint(any([0, '', None, 5]))",
+    "options": ["False", "True", "None", "0"],
+    "answer": "B",
+    "explanation": "any() returns True when at least one element is truthy (5)."
+  },
+  {
+    "id": "q11",
+    "type": "debug",
+    "category": "scope",
+    "difficulty": 4,
+    "prompt": "How to fix scope issue?\n\nx = 1\ndef f():\n    x += 1\nf()",
+    "options": [
+      "Declare global x inside f",
+      "Replace += with == ",
+      "Use x.append(1)",
+      "No fix needed"
+    ],
+    "answer": "A",
+    "explanation": "x += 1 assigns a local value unless global x is declared."
+  },
+  {
+    "id": "q12",
+    "type": "complete",
+    "category": "algorithms",
+    "difficulty": 4,
+    "prompt": "Fill condition for binary search loop:\n\nwhile low ___ high:",
+    "options": ["<=", ">=", "==", "!="],
+    "answer": "A",
+    "explanation": "Binary search normally runs while low <= high."
+  }
+]

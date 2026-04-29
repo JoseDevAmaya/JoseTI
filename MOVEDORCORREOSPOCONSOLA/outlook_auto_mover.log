@@ -1,0 +1,39 @@
+2026-04-13 12:43:15,395 | INFO | Stores detectados: 4
+2026-04-13 12:45:03,865 | INFO | Iniciando analisis de carpeta: \\Archivo de datos de Outlook\pruebas jose
+2026-04-13 12:45:03,965 | INFO | Analisis completado. Meses detectados: 1
+2026-04-13 12:45:28,442 | INFO | Aplicando Restrict para el mes 2026-03: 03/01/2026 12:00 AM -> 04/01/2026 12:00 AM
+2026-04-13 12:45:28,484 | INFO | EntryIDs recolectados para 2026-03: 0
+2026-04-13 12:45:28,490 | WARNING | No se encontraron correos para el mes: 2026-03
+2026-04-13 12:46:34,213 | INFO | Stores detectados: 4
+2026-04-13 12:47:03,929 | INFO | Iniciando analisis de carpeta: \\Archivo de datos de Outlook\pruebas jose
+2026-04-13 12:47:04,028 | INFO | Analisis completado. Meses detectados: 1
+2026-04-13 12:47:21,897 | INFO | Aplicando Restrict para el mes 2026-03: 03/01/2026 12:00 AM -> 04/01/2026 12:00 AM
+2026-04-13 12:47:21,917 | INFO | EntryIDs recolectados para 2026-03: 0
+2026-04-13 12:47:21,921 | WARNING | No se encontraron correos para el mes: 2026-03
+2026-04-13 12:55:28,426 | INFO | Stores detectados: 4
+2026-04-13 12:56:06,814 | INFO | Iniciando analisis de carpeta: \\Archivo de datos de Outlook\pruebas jose
+2026-04-13 12:56:06,920 | INFO | Analisis completado. Meses detectados: 1
+2026-04-13 12:56:21,588 | INFO | Preparando recoleccion para el mes 2026-03
+2026-04-13 12:56:21,590 | INFO | Rango usado: 03/01/2026 00:00 -> 04/01/2026 00:00
+2026-04-13 12:56:21,600 | INFO | Restrict aplicado: [ReceivedTime] >= '03/01/2026 00:00' AND [ReceivedTime] < '04/01/2026 00:00'
+2026-04-13 12:56:21,617 | INFO | Resultado Restrict para 2026-03: 0
+2026-04-13 12:56:21,623 | WARNING | No se encontraron correos para el mes: 2026-03
+2026-04-13 13:04:37,358 | INFO | Stores detectados: 4
+2026-04-13 13:05:56,335 | INFO | Iniciando analisis de carpeta: \\Archivo de datos de Outlook\pruebas jose
+2026-04-13 13:05:56,439 | INFO | Analisis completado. Meses detectados: 1
+2026-04-13 13:06:07,990 | INFO | Recolectando correos del mes 2026-03 sin Restrict()
+2026-04-13 13:06:08,041 | INFO | EntryIDs recolectados para 2026-03: 2
+2026-04-13 13:06:30,783 | INFO | Inicio de movimiento | mes=2026-03 | total=2 | destino=\\Archivo de datos de Outlook\TestMove
+2026-04-13 13:06:30,866 | INFO | MOVIDO | 2026-03 | César envió un mensaje
+2026-04-13 13:06:30,935 | INFO | MOVIDO | 2026-03 | Tienes un nuevo mensaje en el tablón de anuncios
+2026-04-13 13:06:30,937 | INFO | Fin de movimiento | mes=2026-03 | total=2 | movidos=2 | fallidos=0
+2026-04-13 14:47:21,517 | INFO | Stores detectados: 4
+2026-04-13 14:47:39,683 | INFO | Iniciando analisis de carpeta: \\Archivo de datos de Outlook\TestMove
+2026-04-13 14:47:39,756 | INFO | Analisis completado. Meses detectados: 1
+2026-04-13 14:47:51,323 | INFO | Recolectando correos del mes 2026-03 sin Restrict()
+2026-04-13 14:47:51,343 | INFO | EntryIDs recolectados para 2026-03: 2
+2026-04-13 14:47:53,941 | INFO | Inicio de movimiento | mes=2026-03 | total=2 | destino=\\Movimientos Lift\Yammer Root\Outbound
+2026-04-13 14:47:56,899 | INFO | MOVIDO | 2026-03 | César envió un mensaje
+2026-04-13 14:47:57,762 | INFO | MOVIDO | 2026-03 | Tienes un nuevo mensaje en el tablón de anuncios
+2026-04-13 14:47:57,764 | INFO | Fin de movimiento | mes=2026-03 | total=2 | movidos=2 | fallidos=0
+2026-04-13 14:54:53,562 | INFO | Stores detectados: 4

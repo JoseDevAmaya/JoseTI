@@ -1,0 +1,198 @@
+import win32com.client
+from datetime import datetime
+import time
+from collections import defaultdict
+
+##############################################################
+#  CONFIGURACIÓN GENERAL
+##############################################################
+
+BATCH_SIZE = 20  # Correos por lote (para no bloquear Outlook)
+
+##############################################################
+#  FUNCIONES AUXILIARES
+##############################################################
+
+def get_store_type(store):
+    """Clasifica el tipo de Store sin depender de nombres."""
+    try:
+        # Buzón principal
+        if store.ExchangeStoreType == 0 and store.IsPrimaryExchangeMailbox:
+            return "PRIMARY"
+
+        # Archivado en línea
+        if store.ExchangeStoreType == 1:
+            return "ARCHIVE"
+
+        # PSTs
+        if store.IsDataFileStore:
+            return "PST"
+
+    except:
+        pass
+
+    return "OTHER"
+
+
+def walk_folders(folder, prefix, folder_list, store_index):
+    """Recursivamente lista todas las carpetas del store con numeración."""
+    entry = f"{store_index}.{len(folder_list) + 1}"
+    folder_list.append({
+        "id": entry,
+        "name": folder.Name,
+        "folder": folder
+    })
+
+    print(f"{entry}  {prefix}{folder.Name}")
+
+    for f in folder.Folders:
+        walk_folders(f, prefix + "  ", folder_list, store_index)
+
+
+def choose_folder(stores):
+    """Permite elegir una carpeta origen interactiva."""
+    print("\n==============================================")
+    print("           LISTA DE CARPETAS")
+    print("==============================================")
+
+    all_options = []
+
+    store_index = 1
+
+    for s in stores:
+        print(f"\n\n[{store_index}] {s['type']} STORE → {s['name']}")
+        print("-------------------------------------")
+        folder_list = []
+        walk_folders(s["root"], "  ", folder_list, store_index)
+        all_options.append(folder_list)
+        store_index += 1
+
+    choice = input("\n➡ Introduce el número exacto de la carpeta (ej: 1.3): ").strip()
+
+    for group in all_options:
+        for item in group:
+            if item["id"] == choice:
+                return item["folder"]
+
+    print("❌ Carpeta inválida.")
+    exit()
+
+
+def choose_month(folder):
+    """Muestra meses disponibles y permite elegir uno."""
+    print("\n📅 Analizando correos por mes...\n")
+
+    items = folder.Items
+    try:
+        items.Sort("ReceivedTime")
+    except:
+        print("❌ Esta carpeta no contiene correos.")
+        exit()
+
+    meses = defaultdict(list)
+
+    for mail in items:
+        try:
+            fecha = mail.ReceivedTime
+            mes = fecha.strftime("%Y-%m")
+            meses[mes].append(mail)
+        except:
+            pass
+
+    lista = sorted(meses.keys())
+
+    print("Meses encontrados:")
+    for i, m in enumerate(lista):
+        print(f"{i+1}. {m} → {len(meses[m])} correos")
+
+    sel = int(input("\n➡ Elige el mes por número: "))
+    mes = lista[sel-1]
+    return meses[mes], mes
+
+
+##############################################################
+#  DETECTAR STORES
+##############################################################
+
+def detect_stores(outlook):
+    stores = []
+
+    for store in outlook.Stores:
+        stype = get_store_type(store)
+
+        if stype in ["PRIMARY", "ARCHIVE", "PST"]:
+            stores.append({
+                "type": stype,
+                "name": store.DisplayName,
+                "root": store.GetRootFolder()
+            })
+
+    return stores
+
+
+##############################################################
+#  MOVER MENSAJES
+##############################################################
+
+def move_messages(messages, dest_folder, mes_label):
+    total = len(messages)
+    moved = 0
+
+    print(f"\n✅ Moviendo correos del mes {mes_label}...")
+    print(f"Total: {total}")
+
+    for mail in list(messages):
+        try:
+            mail.Move(dest_folder)
+            moved += 1
+        except Exception as e:
+            print(f"⚠ Error moviendo correo: {e}")
+
+        if moved % BATCH_SIZE == 0:
+            print(f"➡ Movidos {moved}/{total}... descansando 1s")
+            time.sleep(1)
+
+    print(f"\n✅ MOVIMIENTO COMPLETADO: {moved}/{total} movidos.")
+
+
+##############################################################
+#  PROGRAMA PRINCIPAL
+##############################################################
+
+def main():
+    print("\n==============================================")
+    print("      OUTLOOK AUTO-MOVER (PROFESIONAL)")
+    print("==============================================\n")
+
+    outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
+
+    # Detect stores automáticamente
+    stores = detect_stores(outlook)
+
+    if not stores:
+        print("❌ No se encontraron Stores válidas.")
+        exit()
+
+    # 1. Elige carpeta origen
+    print("\n➡ Selecciona la carpeta ORIGEN:")
+    origen = choose_folder(stores)
+
+    # 2. Selecciona un mes dentro de esa carpeta
+    mensajes, mes_label = choose_month(origen)
+
+    if len(mensajes) == 0:
+        print("❌ Ese mes no tiene correos.")
+        exit()
+
+    # 3. Seleccionar destino
+    print("\n➡ Selecciona la carpeta DESTINO:")
+    destino = choose_folder(stores)
+
+    # 4. Mover
+    move_messages(mensajes, destino, mes_label)
+
+
+##############################################################
+
+if __name__ == "__main__":
+    main()

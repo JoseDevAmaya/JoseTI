@@ -1,0 +1,33 @@
+{
+  "stage": 1,
+  "ai_max_hp": 100,
+  "player": {
+    "hp": 19,
+    "max_hp": 100,
+    "xp": 0,
+    "level": 1,
+    "wins": 0,
+    "losses": 0,
+    "streak": 0,
+    "reputation": 0
+  },
+  "logs": [
+    "[INFO] New duel session started.",
+    "[ERR] Wrong answer.",
+    "[WARN] AI answered correctly in 4.3s and dealt 15.",
+    "[WARN] Timeout! You received 12 damage.",
+    "[WARN] AI answered correctly in 4.3s and dealt 15.",
+    "[ERR] Wrong answer.",
+    "[INFO] AI failed its answer in 5.7s.",
+    "[ERR] Wrong answer.",
+    "[INFO] AI failed its answer in 5.7s.",
+    "[ERR] Wrong answer.",
+    "[WARN] AI answered correctly in 5.9s and dealt 12.",
+    "[ERR] Wrong answer.",
+    "[INFO] AI failed its answer in 5.8s.",
+    "[ERR] Wrong answer.",
+    "[WARN] AI answered correctly in 5.7s and dealt 12.",
+    "[ERR] Wrong answer.",
+    "[WARN] AI answered correctly in 5.3s and dealt 15."
+  ]
+}
