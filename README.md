@@ -1,7 +1,7 @@
 # Hola, soy Jose Oliveros 👋
 
-### Desarrollador Backend & Especialista en Soporte Técnico TI
-**Madrid, España 🇪🇸 | Honduras 🇭🇳**
+### Desarrollador de Software – Full Stack
+** Honduras 🇭🇳**
 
 Profesional con más de 2 años de experiencia en la modernización de entornos corporativos. Mi enfoque principal es el desarrollo de soluciones backend escalables y la optimización de infraestructura crítica. Experto en integrar **IA** y automatización para transformar sistemas **Legacy** en herramientas eficientes y seguras.
 
